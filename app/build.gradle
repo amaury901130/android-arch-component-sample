@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     defaultConfig {
@@ -20,6 +22,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    //to enable Android DataBinding
+    dataBinding {
+      enabled = true
+    }
+    // work-runtime-ktx 2.1.0 and above now requires Java 8
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
 }
 
 dependencies {
@@ -31,4 +41,15 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.preference:preference-ktx:1.0.0"
+    implementation 'androidx.room:room-runtime:2.1.0'
+    kapt "android.arch.persistence.room:compiler:1.1.1"
+    kapt "android.arch.lifecycle:compiler:1.1.1"
+    implementation 'android.arch.work:work-runtime-ktx:1.0.1'
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+
 }
