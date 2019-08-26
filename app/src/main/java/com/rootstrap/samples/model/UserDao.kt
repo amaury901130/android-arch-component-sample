@@ -12,7 +12,7 @@ interface UserDao {
     @Query("SELECT * FROM USER WHERE current != 1 ORDER BY name ")
     fun getAllUsers(): DataSource.Factory<Int, User>
 
-    //you can do this also in a background thread, no need live data
+    //also you can do this in a background thread, no need live data
     @Query("SELECT * FROM USER WHERE current != 1 ORDER BY name ")
     fun getAll(): List<User>
 

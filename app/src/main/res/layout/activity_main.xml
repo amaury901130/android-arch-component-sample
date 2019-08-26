@@ -4,9 +4,9 @@
     <data>
         <!-- Functions for example submit a form, change preferences etc... -->
         <variable name="viewModel" type="com.rootstrap.samples.viewmodel.MainActivityViewModel"/>
-        <!-- View: validations, animations etc.... -->
+        <!-- View: validations, animations, open dialogs etc.... -->
         <variable name="view" type="com.rootstrap.samples.ui.view.MainActivityView"/>
-        <!-- Model: every time the model update, the view update all data-->
+        <!-- Model: every time the model update, the view update all data reference to the model-->
         <variable name="user" type="com.rootstrap.samples.model.User"/>
     </data>
 

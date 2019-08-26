@@ -29,6 +29,10 @@ class UserRepository(var userDao: UserDao) {
     ))
 
     //other alternative without DB
+    //but you have to postValue every time to callBack all observers
+    var otherCurrentUser: MutableLiveData<User> = MutableLiveData()
+    var otherAllUser: MutableLiveData<List<User>> = MutableLiveData()
+
     fun saveUser(user: User) {
         //update the user in the server and save
         //......................................
@@ -43,9 +47,6 @@ class UserRepository(var userDao: UserDao) {
             otherAllUser.postValue(users)
         }
     }
-
-    var otherCurrentUser: MutableLiveData<User> = MutableLiveData()
-    var otherAllUser: MutableLiveData<List<User>> = MutableLiveData()
 
     fun loadCurrentUser() {
         //this data come from Api
