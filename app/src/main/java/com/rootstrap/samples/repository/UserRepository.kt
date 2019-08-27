@@ -34,16 +34,17 @@ class UserRepository(var userDao: UserDao) {
     var otherAllUser: MutableLiveData<List<User>> = MutableLiveData()
 
     fun saveUser(user: User) {
-        //update the user in the server and save
-        //......................................
         ioThread.execute {
             userDao.createOrUpdate(user)
+            //in case you are not using room db
+            otherCurrentUser.postValue(user)
         }
     }
 
     fun saveUsers(users: List<User>) {
         ioThread.execute {
             userDao.createOrUpdate(users)
+            //in case you are not using room db
             otherAllUser.postValue(users)
         }
     }
@@ -52,7 +53,6 @@ class UserRepository(var userDao: UserDao) {
         //this data come from Api
         val user = User("Armando", "Mesas", true)
         saveUser(user)
-        otherCurrentUser.postValue(user)
     }
 
     fun getAllUser() {

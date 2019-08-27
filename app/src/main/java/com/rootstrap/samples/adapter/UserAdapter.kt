@@ -35,6 +35,7 @@ class UserAdapter : PagedListAdapter<User, UserAdapter.UserViewHolder>(diffCallb
         }
 
         fun bindTo(user : User?) {
+            //this adapter preload null data
             if (user != null)
                 bindingView!!.user = user
         }

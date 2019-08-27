@@ -33,8 +33,6 @@ class MainActivityView(var mainBinding: ActivityMainBinding,
         //do something
         mainBinding.run {
             btnChangeCurrentUserName.visibility = View.GONE
-            userName.visibility = View.GONE
-            userLastName.visibility = View.GONE
         }
         //call the action
         viewModel!!.changeUserName()
